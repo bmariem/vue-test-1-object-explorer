@@ -1,7 +1,9 @@
 <script>
+import CustomTree from './CustomTree.vue';
 
 export default {
   name: 'SecondPart',
+  components: {CustomTree },
   data() {
     return {
       nestedObject: {
@@ -62,12 +64,26 @@ export default {
       //   yipeee: "yeah"
       // }
     }
+  },
+  methods:{
+    displayDetails(el) {
+      alert(el)
+    }
   }
 }
 </script>
 <template>
     <div>
-        <textarea>{{nestedObject}}</textarea>
-        <!-- Your code here -->
+        <textarea >{{ nestedObject }}</textarea>
+        <CustomTree v-bind:nestedObject="nestedObject" />
     </div>
 </template> 
+
+<style lang="css">
+textarea {
+  width: 100%;
+  min-height: 200px;
+}
+</style>
+
+  
